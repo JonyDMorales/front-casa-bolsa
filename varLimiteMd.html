@@ -2,7 +2,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Limites y lineas</title>
+<title>Var Mesa de dinero</title>
 <link rel="stylesheet"
 	href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
 	integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh"
@@ -92,7 +92,7 @@
 
 </style>
 </head>
-<body onload="cambioDivisasMethod('contraparte')">
+<body onload="getProductoLimitesmd()">
 	<nav class="navbar navbar-expand-lg navbar-light bg-light">
 		<button class="navbar-toggler" type="button" data-toggle="collapse"
 			data-target="#navbarNav" aria-controls="navbarNav"
@@ -123,21 +123,37 @@
 </div>
 
 	<div class="container">
-		<h1 class="text-primary">Limites y lineas</h1>
-		 <select style="width: 25%; display: inline-table; margin-left: 5px;"
-			onchange="cambio()" class="form-control" id="selectTipo">
-			<option value="contraparte">Contraparte</option>
-			<option value="operador">Operador</option>
+		<h1 class="text-primary">Var Mesa de dinero</h1>
+		<br>
+		<br>
 
-		</select> <select style="width: 25%; display: inline-table; margin-left: 10px;" onchange="cambioDivisa()"
-			class="form-control" id="selectDivisas">
-			<option value="MXN">MXN</option>
-			<option value="US">USD</option>
-		</select> 
-		<br><br> 
-		<a class="btn btn-primary btn-xs" onclick="addRow()"
-			id="btnAgregar" style="color: white">Agregar</a>
-		<div id="conteTable"></div>
+
+<table style="float: left; width: 200px; border: 1px solid #dee2e6; text-align: center;" class="table">
+  <tbody>
+    <tr>  
+      <td>99%</td>
+      <td>10</td>
+    </tr>
+    <tr>  
+      <td>97%</td>
+      <td>15</td>
+    </tr>
+    <tr>
+      <td>95%</td>
+      <td>12</td>
+    </tr>
+  </tbody>
+</table>
+
+
+<label>&nbsp;&nbsp;&nbsp;Var historico porcentaje</label>
+<br>
+<select id="porcentajeSelect" class="form-control" style="width: 25%; display: inline-table; margin-left: 5px;" onchange="getProductoLimitesmd()" >
+  <option value="99">99%</option>
+  <option value="97">97%</option>
+  <option value="95">95%</option>
+</select>
+
 
 	</div>
 
@@ -162,7 +178,7 @@
 		src="https://cdn.datatables.net/1.10.20/js/dataTables.bootstrap4.min.js"></script>
 	<script src="https://cdn.jsdelivr.net/npm/sweetalert2@9"></script>
 	<script type="text/javascript" src="./js/modifyTable.js"></script>
-	<script type="text/javascript" src="./js/limitesFunciones.js"></script>
+	<script type="text/javascript" src="./js/varLimiteMdFunciones.js"></script>
 	<script src="//cdn.jsdelivr.net/npm/alertifyjs@1.13.1/build/alertify.min.js"></script>
 
 </body>
