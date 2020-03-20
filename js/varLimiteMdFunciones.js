@@ -56,7 +56,7 @@ function getProductoLimitesmd() {
 					     html+='<tr>'
 					      html+=' <th scope="row">'+(i+1)+'</th>'
 					       html+='<td>'+da[i]['issue']+'</td>'
-					       html+='<td>'+da[i]['valorLibros']+'</td>'
+					       html+='<td>'+da[i]['multi']+'</td>'
 					       html+='<td>'+porcentajeValues[i]+'</td>'
 					       html+='<td>'+da[i]['limite']+'</td>'
 
@@ -69,7 +69,7 @@ function getProductoLimitesmd() {
 					     html+='</tr>'
 
 					     sumaLimites += da[i]['limite'];
-					     sumaLibros += da[i]['valorLibros'];
+					     sumaLibros += da[i]['multi'];
 					
 				}
 
