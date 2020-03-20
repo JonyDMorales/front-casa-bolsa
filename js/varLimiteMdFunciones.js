@@ -1,6 +1,6 @@
 
 
-	var token='eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJQaGlJbnZlc3RtZW50Q2FwaXRhbCIsImlhdCI6MTU4NDQ5MDk5OCwiZXhwIjoxNTg0NTc2MDAwLCJuYmYiOjE1ODQ0OTA5OTgsImp0aSI6IjVlNzE2OWY2ZWZlOTMiLCJzdWIiOjEsInVzciI6eyJpZF91c3VhcmlvcyI6MSwiaWRfem9uYXNfaG9yYXJpYXMiOjQ5LCJub21icmUiOiJNYW5saW8iLCJhcGVsbGlkbyI6IlRlcmFuIiwiY29ycmVvIjoibWFubGlvZWxudW0xQGhvdG1haWwuY29tIiwiY2FyZ28iOiJNYW5hZ2VyIiwidGVsZWZvbm9fZmlqbyI6IjU2NzEzMTc0NSIsImNlbHVsYXIiOiI1NTEwODAwMjkxIiwiY3JlYXRlZF9hdCI6IjIwMTktMTAtMTYgMjA6NDg6MzAiLCJ1cGRhdGVkX2F0IjoiMjAxOS0xMC0xMSAwODozODozOSIsImRuaV9udW0iOiIyMzQzMjQzMjQiLCJzZWd1cm9fc29jaWFsIjoiMzQ1NDM1NDM1IiwiZm90b19iYXNlNjQiOiIiLCJwYXNzIjoiOGU5NmJkMDJmYmNiMDU0Y2NhMTFjZjhkZWIwMzE1NjJiOWFhZWRkODNmODNmZjdhYmY3YzNmYTc4N2FkOWJiZCJ9LCJwZXJtaXNvcyI6WzFdfQ.c49OXzweAb5wTY5IyfubtG1Jq-QGTy9hs9aH5p3H0jM';
+	var token='eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJQaGlJbnZlc3RtZW50Q2FwaXRhbCIsImlhdCI6MTU4NDY2OTI4NiwiZXhwIjoxNTg0NzQ4ODAwLCJuYmYiOjE1ODQ2NjkyODYsImp0aSI6IjVlNzQyMjY2NjhhZjgiLCJzdWIiOjEsInVzciI6eyJpZF91c3VhcmlvcyI6MSwiaWRfem9uYXNfaG9yYXJpYXMiOjQ5LCJub21icmUiOiJNYW5saW8iLCJhcGVsbGlkbyI6IlRlcmFuIiwiY29ycmVvIjoibWFubGlvZWxudW0xQGhvdG1haWwuY29tIiwiY2FyZ28iOiJNYW5hZ2VyIiwidGVsZWZvbm9fZmlqbyI6IjU2NzEzMTc0NSIsImNlbHVsYXIiOiI1NTEwODAwMjkxIiwiY3JlYXRlZF9hdCI6IjIwMTktMTAtMTYgMjA6NDg6MzAiLCJ1cGRhdGVkX2F0IjoiMjAxOS0xMC0xMSAwODozODozOSIsImRuaV9udW0iOiIyMzQzMjQzMjQiLCJzZWd1cm9fc29jaWFsIjoiMzQ1NDM1NDM1IiwiZm90b19iYXNlNjQiOiIiLCJwYXNzIjoiOGU5NmJkMDJmYmNiMDU0Y2NhMTFjZjhkZWIwMzE1NjJiOWFhZWRkODNmODNmZjdhYmY3YzNmYTc4N2FkOWJiZCJ9LCJwZXJtaXNvcyI6WzFdfQ.HwXLsjz7oPJKHEHLeUR0Trr86N1a2qwTyi-gVWZdBAk';
 	var urlGlobal = 'http://localhost:8081';
 
 
@@ -37,6 +37,7 @@ function getProductoLimitesmd() {
 				    html+='<tr>'
 				      html+='<th scope="col">#</th>'
 				      html+='<th scope="col">Producto</th>'
+				      html+='<th scope="col">Valor libros</th>'
 				      html+='<th scope="col">'+selectPorcentaje+'%</th>'
 				      html+='<th scope="col">limite</th>'
 				      html+='<th scope="col">var-limite</th>'
@@ -46,6 +47,7 @@ function getProductoLimitesmd() {
 
 				  var porcentajeValues = ["2", "1", "3"];
 				  var sumaLimites=0;
+				  var sumaLibros=0;
 
 				for (var i = 0; i < da.length; i++) {
 
@@ -54,6 +56,7 @@ function getProductoLimitesmd() {
 					     html+='<tr>'
 					      html+=' <th scope="row">'+(i+1)+'</th>'
 					       html+='<td>'+da[i]['issue']+'</td>'
+					       html+='<td>'+da[i]['valorLibros']+'</td>'
 					       html+='<td>'+porcentajeValues[i]+'</td>'
 					       html+='<td>'+da[i]['limite']+'</td>'
 
@@ -66,6 +69,7 @@ function getProductoLimitesmd() {
 					     html+='</tr>'
 
 					     sumaLimites += da[i]['limite'];
+					     sumaLibros += da[i]['valorLibros'];
 					
 				}
 
@@ -79,6 +83,7 @@ function getProductoLimitesmd() {
 				html2+='<table class="table">'
 				  html2+='<thead class="thead-light">'
 				    html2+='<tr>'
+				      html2+='<th scope="col">Valor libros</th>'
 				      html2+='<th scope="col">Var MD</th>'
 				      html2+='<th scope="col">limite Var</th>'
 				      html2+='<th scope="col">Var-lm</th>'
@@ -88,6 +93,7 @@ function getProductoLimitesmd() {
 
 				  var sumaVarLm=(sumaLimites)-(selectPorcentajeValor);
 				  	    html2+='<tr>'
+					       html2+='<td>'+sumaLibros+'</td>'
 					       html2+='<td>'+selectPorcentajeValor+'</td>'
 					       html2+='<td>'+sumaLimites+'</td>'
 
